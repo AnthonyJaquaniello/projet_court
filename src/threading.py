@@ -2,6 +2,7 @@ from math import sqrt
 from math import floor
 import numpy as np
 import re
+import copy
 
 class carbon_alpha:
     """
@@ -103,7 +104,7 @@ for i in range(0,10): #résidu
     for j in range(0,10): #ca
         #pour chaque couple on doit créer une low level matrix
         low_level_matrix = np.arange(dist_matrix.shape[1])
-        low_level_matrix = dist_matrix[:,j]
+        low_level_matrix = copy.deepcopy(dist_matrix[:,j])
         for k in range(0,len(low_level_matrix)): #conversion en dope
             if low_level_matrix[k] > 5:
                 low_level_matrix[k] = 0
