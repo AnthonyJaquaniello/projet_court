@@ -67,6 +67,16 @@ def dope_parser(dope):
             liste_dope.append(d)
     return liste_dope
 
+def dist_to_dope(dist, name_1, name_2, liste):
+    """
+        Fais la conversion entre une distance entre deux résidus, et un potentiel DOPE dans la structure de donnée 'liste'.
+        Nécessite le nom des deux résidus dont la distance a été évaluée.
+    """
+    for d in liste:
+        if d["AA_1"] == name_1:
+            if d["AA_2"] == name_2:
+                return d["Energy"][floor(dist*4)-1]
+
 #Dans un premier temps il s'agit de calculer une matrice de distance entre tous les acides aminés de la protéine, deux à deux.
 
 liste_ca = pdb_parser("../data/pdb/2ai9.pdb")
