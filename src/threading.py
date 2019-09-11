@@ -1,4 +1,5 @@
 from math import sqrt
+from math import floor
 import numpy as np
 import re
 
@@ -82,7 +83,7 @@ def dist_to_dope(dist, name_1, name_2, liste):
 liste_ca = pdb_parser("../data/pdb/2ai9.pdb")
 seq = fasta_parser("../data/fasta/6p4y.fasta.txt")
 
-dist_matrix = np.ones((len(liste_ca),len(liste_ca)))
+dist_matrix = np.ones(10,10))
 
 for i in range(0,dist_matrix.shape[0]):
     for j in range(0,dist_matrix.shape[1]):
@@ -93,6 +94,21 @@ catch_number = re.compile("-{0,}[0-9]{1,}.[0-9]{1,}")
 catch_name = re.compile("[A-Z]{1,3}")
 
 dope_limitator("../data/dope.par.txt")
+liste_dope = dope_parser("data/dope_limited.txt")
 
+prime_matrix = np.zeros((10,10,dist_matrix.shape[0]))
+#on stocke dans chaque case de cette matrice, une low_matrix
+
+for i in range(0,10): #résidu
+    for j in range(0,10): #ca
+        #pour chaque couple on doit créer une low level matrix
+        low_level_matrix = np.arange(dist_matrix.shape[1])
+        low_level_matrix = dist_matrix[:,j]
+        for k in range(0,len(low_level_matrix)): #conversion en dope
+            if low_level_matrix[k] > 5:
+                low_level_matrix[k] = 0
+            else:
+                low_level_matrix[k] = dist_to_dope(low_level_matrix[k], liste_ca[j].name, liste_ca[k].name, liste_dope)
+        prime_matrix[i,j,:] = low_level_matrix
 
 
