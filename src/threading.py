@@ -53,7 +53,7 @@ def dope_limitator(dope):
             name = re.findall(catch_name,line)
             if name[1] == 'CA':
                 if name[3] == 'CA':
-                    filout.write("{}\n".format(line))
+                    filout.write("{}".format(line))
                    
 def dope_parser(dope):
     """
