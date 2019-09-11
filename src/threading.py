@@ -56,6 +56,17 @@ def dope_limitator(dope):
             if name[1] == 'CA':
                 if name[3] == 'CA':
                     filout.write("{}\n".format(line))
+                   
+def dope_parser(dope):
+    """
+        Fonction qui parse le fichier dope en input et renvoie une liste de dictionnaire.
+    """
+    with open(dope,"r") as filin:
+        for line in filin:
+            d = {"AA_1":re.findall(catch_name,line)[0],"AA_2":re.findall(catch_name,line)[2],
+                 "Energy":re.findall(catch_number,line)}
+            liste_dope.append(d)
+    return liste_dope
 
 #Dans un premier temps il s'agit de calculer une matrice de distance entre tous les acides aminés de la protéine, deux à deux.
 
@@ -69,7 +80,7 @@ for i in range(0,dist_matrix.shape[0]):
         dist_matrix[i,j] = euclidean_dist(liste_ca[i],liste_ca[j])
     
 #Dans un second temps on va devoir relier l'information de distance avec le potentiel DOPE
-catch_number = re.compile("([0-9]{2}.[0-9]{2})")
+catch_number = re.compile("-{0,}[0-9]{1,}.[0-9]{1,}")
 catch_name = re.compile("[A-Z]{1,3}")
 
 dope_limitator("../data/dope.par.txt")
