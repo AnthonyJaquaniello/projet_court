@@ -1,5 +1,3 @@
-#! /home/anthony/anaconda3/bin/python
-
 from math import sqrt
 import numpy as np
 import re
@@ -62,6 +60,7 @@ def dope_parser(dope):
         Fonction qui parse le fichier dope en input et renvoie une liste de dictionnaire.
     """
     with open(dope,"r") as filin:
+        liste_dope= []
         for line in filin:
             d = {"AA_1":re.findall(catch_name,line)[0],"AA_2":re.findall(catch_name,line)[2],
                  "Energy":re.findall(catch_number,line)}
