@@ -103,19 +103,23 @@ abreviation = {"A":"ALA","C":"CYS","D":"ASP","E":"GLU","F":"PHE","G":"GLY","H":"
               "L":"LEU","K":"LYS","M":"MET","N":"ASN","P":"PRO","Q":"GLN","R":"ARG","S":"SER","T":"THR",
               "V":"VAL","W":"TRP","Y":"TYR"}
 
-prime_matrix = np.zeros((10,10,dist_matrix.shape[0]))
+prime_matrix = np.zeros((NB_AA,NB_CA,dist_matrix.shape[0]+1,dist_matrix.shape[1]+1))
 #on stocke dans chaque case de cette matrice, une low_matrix
 
-for i in range(0,10): #résidu
-    for j in range(0,10): #ca
+for i in range(0,NB_AA): #résidu
+    for j in range(0,NB_CA): #ca
         #pour chaque couple on doit créer une low level matrix
-        low_level_matrix = np.arange(dist_matrix.shape[1])
-        low_level_matrix = copy.deepcopy(dist_matrix[:,j])
-        for k in range(0,len(low_level_matrix)): #conversion en dope
-            if low_level_matrix[k] > 5:
-                low_level_matrix[k] = 0
-            else:
-                low_level_matrix[k] = dist_to_dope(low_level_matrix[k], liste_ca[j].name, liste_ca[k].name, liste_dope)
-        prime_matrix[i,j,:] = low_level_matrix
-
+        low_level_matrix = np.zeros((NB_AA+1,NB_CA+1))
+        for k in range(1,low_level_matrix.shape[0]):
+            for l in range(1,low_level_matrix.shape[1]):
+                choice = min(low_level_matrix[k-1,l-1], low_level_matrix[k-1,l],
+                              low_level_matrix[k,l-1])
+                distance = liste_ca[j].euclidean_dist(liste_ca[l-1])
+                try:
+                    energy = dist_to_dope(distance,abreviation[seq[i]],
+                                                         abreviation[seq[k-1]],liste_dope)
+                except IndexError:
+                    energy =  0
+                low_level_matrix[k,l] = choice + energy
+        prime_matrix[i,j,:,:] = low_level_matrix
 
