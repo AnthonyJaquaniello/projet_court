@@ -82,15 +82,16 @@ def dist_to_dope(dist, name_1, name_2, liste):
                     return float(d["Energy"][0])
 
 #Dans un premier temps il s'agit de calculer une matrice de distance entre tous les acides aminés de la protéine, deux à deux.
-
+NB_AA = 5
+NB_CA = 5
 liste_ca = pdb_parser("../data/pdb/2ai9.pdb")
 seq = fasta_parser("../data/fasta/6p4y.fasta.txt")
 
-dist_matrix = np.ones((10,10))
+dist_matrix = np.ones((NB_AA,NB_CA))
 
 for i in range(0,dist_matrix.shape[0]):
     for j in range(0,dist_matrix.shape[1]):
-        dist_matrix[i,j] = euclidean_dist(liste_ca[i],liste_ca[j])
+        dist_matrix[i,j] = liste_ca[i].euclidean_dist(liste_ca[j])
     
 #Dans un second temps on va devoir relier l'information de distance avec le potentiel DOPE
 catch_number = re.compile("-{0,}[0-9]{1,}.[0-9]{1,}")
@@ -98,6 +99,9 @@ catch_name = re.compile("[A-Z]{1,3}")
 
 dope_limitator("../data/dope.par.txt")
 liste_dope = dope_parser("data/dope_limited.txt")
+abreviation = {"A":"ALA","C":"CYS","D":"ASP","E":"GLU","F":"PHE","G":"GLY","H":"HIS","I":"ILE",
+              "L":"LEU","K":"LYS","M":"MET","N":"ASN","P":"PRO","Q":"GLN","R":"ARG","S":"SER","T":"THR",
+              "V":"VAL","W":"TRP","Y":"TYR"}
 
 prime_matrix = np.zeros((10,10,dist_matrix.shape[0]))
 #on stocke dans chaque case de cette matrice, une low_matrix
