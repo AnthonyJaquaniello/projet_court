@@ -76,7 +76,10 @@ def dist_to_dope(dist, name_1, name_2, liste):
     for d in liste:
         if d["AA_1"] == name_1:
             if d["AA_2"] == name_2:
-                return d["Energy"][floor(dist*4)-1]
+                if dist != 0:
+                    return float(d["Energy"][floor(dist*4)-1])
+                else:
+                    return float(d["Energy"][0])
 
 #Dans un premier temps il s'agit de calculer une matrice de distance entre tous les acides aminés de la protéine, deux à deux.
 
