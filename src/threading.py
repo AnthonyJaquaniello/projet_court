@@ -14,6 +14,11 @@ class carbon_alpha:
         self.x = x
         self.y = y
         self.z = z
+    def euclidean_dist(self, ca):
+        """
+            On passe a la méthode notre objet et un autre objet de la classe carbon_alpha.
+        """
+        return sqrt((self.x - ca.x)**2 + (self.y - ca.y)**2 + (self.z- ca.z)**2)
         
 def pdb_parser(path_to_file):
     """
@@ -38,12 +43,6 @@ def fasta_parser(path_to_file):
             else:
                 seq += line[:-1]
     return seq
-    
-def euclidean_dist(ca_1,ca_2):
-    """
-        Fonction qui renvoie la distance euclidienne entre deux objets carbon_alpha.
-    """
-    return  sqrt((ca_1.x - ca_2.x)**2 + (ca_1.y - ca_2.y)**2 + (ca_1.z- ca_2.z)**2)
     
 def dope_limitator(dope):
     """
@@ -84,7 +83,7 @@ def dist_to_dope(dist, name_1, name_2, liste):
 liste_ca = pdb_parser("../data/pdb/2ai9.pdb")
 seq = fasta_parser("../data/fasta/6p4y.fasta.txt")
 
-dist_matrix = np.ones(10,10))
+dist_matrix = np.ones((10,10))
 
 for i in range(0,dist_matrix.shape[0]):
     for j in range(0,dist_matrix.shape[1]):
