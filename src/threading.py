@@ -81,6 +81,10 @@ def dist_to_dope(dist, name_1, name_2, liste):
                 else:
                     return float(d["Energy"][0])
 
+def min_finder(matrix):
+    liste = list(matrix.reshape(matrix.size)
+    return min(liste)
+
 #Dans un premier temps il s'agit de calculer une matrice de distance entre tous les acides aminés de la protéine, deux à deux.
 NB_AA = 5
 NB_CA = 5
