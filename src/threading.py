@@ -3,6 +3,22 @@ from math import floor
 import numpy as np
 import re
 
+## \mainpage Projet court de M2 Bioinformatique
+# \section intro_sec Introduction
+# Réalisation d'un programme reprenant la méthode décrite dans l'article 3
+#basé sur la double programmation dynamique (pour plus d’information 4). Le
+#threading (enfilage) [1,2,3] est une stratégie pour rechercher des séquences
+#compatibles avec une structure. Seul les carbones α de la protéine seront
+#considérés. Vous utiliserez les potentiels statistiques DOPE [5].
+# \section ressources Ressources
+# 1) Jones, D.T., Taylor, W.R. & Thornton, J.M. (1992) A new approach to protein fold recognition. Nature. 358, 86-89.\n
+# 2) Jones, D.T., Miller, R.T. & Thornton, J.M. (1995) Successful protein fold recognition by optimal sequence threading validated by
+#rigorous blind testing. Proteins. 23, 387-397.\n
+# 3) Jones, D.T. (1998) THREADER : Protein Sequence Threading by Double Dynamic Programming. (in) Computational Methods in
+#Molecular Biology. Steven Salzberg, David Searls, and Simon Kasif, Eds. Elsevier Science. Chapter 13.\n
+# 4) Protein Structure Comparison Using SAP - Springer\n
+# 5) http://www.dsimb.inserm.fr/~gelly/doc/dope.par
+
 class CarbonAlpha:
     """Classe représentant un carbone alpha de manière géométrique
     (coordonnées dans le plan et facteurs physico-chimiques."""
@@ -37,11 +53,11 @@ def fasta_parser(path_to_file):
                 seq += line[:-1]
     return seq
 
-def dope_limitator(dope):
+def dope_limitator(dopin, dopout):
     """N'extrait du fichier dope initial, que les lignes décrivant des
     interactions entre carbones alphas. Elle crée un fichier dope
     condensé ne contenant que ces interactions."""
-    with open(dope, "r") as filin, open("dope_limited.txt", "w") as filout:
+    with open(dopin, "r") as filin, open(dopout, "w") as filout:
         for line in filin:
             name = re.findall(catch_name, line)
             if name[1] == 'CA':
@@ -78,16 +94,22 @@ def min_finder(matrix):
     return min(liste)
 #==================================================
 
-#Dans un premier temps il s'agit de calculer une matrice de distance
+#Dans un premier temps il s'agit de calculer une matrice de distance,
 #entre tous les acides aminés de la protéine, deux à deux.
 NB_AA = 25
 NB_CA = 25
-PATH_PDB = "../data/pdb/2ai9.pdb"
-PATH_FASTA = "../data/fasta/6p4y.fasta.txt"
+print("Veuillez entrer le chemin vers un fichier pdb: ")
+PATH_PDB = input()
+print("Veuillez entrer le chemin vers un fichier fasta: ")
+PATH_FASTA = input()
+print("Veuillez entrer le chemin vers un fichier dope: ")
+IN_DOPE = input()
+print("Veuillez la destination du nouveau fichier dope: ")
+OUT_DOPE = input()
 
 liste_ca = pdb_parser(PATH_PDB)
 seq = fasta_parser(PATH_FASTA)
-dist_matrix = np.ones((NB_AA, NB_CA))
+dist_matrix = np.zeros((NB_AA, NB_CA))
 
 for i in range(0, dist_matrix.shape[0]):
     for j in range(0, dist_matrix.shape[1]):
@@ -95,8 +117,8 @@ for i in range(0, dist_matrix.shape[0]):
 #Dans un second temps on va devoir relier l'information de distance avec le potentiel DOPE
 catch_number = re.compile("-{0,}[0-9]{1,}.[0-9]{1,}")
 catch_name = re.compile("[A-Z]{1,3}")
-dope_limitator("../data/dope.par.txt")
-liste_dope = dope_parser("data/dope_limited.txt")
+dope_limitator(IN_DOPE, OUT_DOPE)
+liste_dope = dope_parser(OUT_DOPE)
 abreviation = {
     "A": "ALA", "C": "CYS", "D": "ASP", "E": "GLU", "F": "PHE",
     "G": "GLY", "H": "HIS", "I": "ILE", "L": "LEU", "K": "LYS", "M": "MET",
