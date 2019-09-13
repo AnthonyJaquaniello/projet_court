@@ -82,14 +82,22 @@ def dist_to_dope(dist, name_1, name_2, liste):
                     return float(d["Energy"][0])
 
 def min_finder(matrix):
-    liste = list(matrix.reshape(matrix.size)
+    """
+        Renvoie le minimum d'une matrice.
+    """
+    liste = list(matrix.reshape(matrix.size))
     return min(liste)
+    
+#=============================================================================================================================
 
 #Dans un premier temps il s'agit de calculer une matrice de distance entre tous les acides aminés de la protéine, deux à deux.
-NB_AA = 5
-NB_CA = 5
-liste_ca = pdb_parser("../data/pdb/2ai9.pdb")
-seq = fasta_parser("../data/fasta/6p4y.fasta.txt")
+NB_AA = 25
+NB_CA = 25
+path_pdb = "../data/pdb/2ai9.pdb"
+path_fasta = "../data/fasta/6p4y.fasta.txt"
+
+liste_ca = pdb_parser(path_pdb)
+seq = fasta_parser(path_fasta)
 
 dist_matrix = np.ones((NB_AA,NB_CA))
 
@@ -110,6 +118,8 @@ abreviation = {"A":"ALA","C":"CYS","D":"ASP","E":"GLU","F":"PHE","G":"GLY","H":"
 prime_matrix = np.zeros((NB_AA,NB_CA,dist_matrix.shape[0]+1,dist_matrix.shape[1]+1))
 #on stocke dans chaque case de cette matrice, une low_matrix
 
+#construction des low_lvl_matrix:
+
 for i in range(0,NB_AA): #résidu
     for j in range(0,NB_CA): #ca
         #pour chaque couple on doit créer une low level matrix
@@ -126,4 +136,17 @@ for i in range(0,NB_AA): #résidu
                     energy =  0
                 low_level_matrix[k,l] = choice + energy
         prime_matrix[i,j,:,:] = low_level_matrix
+
+#remplissage de la high_lvl_matrix:
+
+high_level_matrix = np.zeros((NB_AA+1,NB_CA+1))
+
+for i in range(1,high_level_matrix.shape[0]):
+    for j in range(1,high_level_matrix.shape[1]):
+            choice = min([high_level_matrix[i-1,-1],high_level_matrix[i-1,j],high_level_matrix[i,j-1]])   
+            high_level_matrix[i,j] = choice + min_finder(prime_matrix[i-1,j-1,:,:])
+            
+#resultat final:
+
+print("Score d'adéquation entre la séquence '{}' et la structure '{}' = {:.2f}".format(path_fasta, path_pdb, min_finder(high_level_matrix))
 
