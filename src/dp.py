@@ -1,3 +1,4 @@
+import sys
 from math import sqrt
 from math import floor
 import numpy as np
@@ -96,16 +97,13 @@ def min_finder(matrix):
 
 #Dans un premier temps il s'agit de calculer une matrice de distance,
 #entre tous les acides aminés de la protéine, deux à deux.
-NB_AA = 25
-NB_CA = 25
-print("Veuillez entrer le chemin vers un fichier pdb: ")
-PATH_PDB = input()
-print("Veuillez entrer le chemin vers un fichier fasta: ")
-PATH_FASTA = input()
-print("Veuillez entrer le chemin vers un fichier dope: ")
-IN_DOPE = input()
-print("Veuillez la destination du nouveau fichier dope: ")
-OUT_DOPE = input()
+NB_AA = 50
+NB_CA = 50
+PATH_PDB = sys.argv[1]
+PATH_FASTA = sys.argv[2]
+IN_DOPE = sys.argv[3]
+OUT_DOPE = sys.argv[4]
+print("Veuillez patienter, le calcul peut prendre un certain temps...")
 
 liste_ca = pdb_parser(PATH_PDB)
 seq = fasta_parser(PATH_FASTA)
