@@ -58,11 +58,11 @@ def fasta_parser(path_to_file):
                 seq += line[:-1]
     return seq
 
-def dope_limitator(dopin, dopout):
+def dope_limitator(dopin):
     """N'extrait du fichier dope initial, que les lignes décrivant des
     interactions entre carbones alphas. Elle crée un fichier dope
     condensé ne contenant que ces interactions."""
-    with open(dopin, "r") as filin, open(dopout, "w") as filout:
+    with open(dopin, "r") as filin, open("dope_limited.txt", "w") as filout:
         for line in filin:
             name = re.findall(catch_name, line)
             if name[1] == 'CA':
@@ -97,20 +97,20 @@ def min_finder(matrix):
     """Renvoie le minimum d'une matrice."""
     liste = list(matrix.reshape(matrix.size))
     return min(liste)
+
 if __name__ == '__main__':
 
     #Interface utilisateur
 
-    NB_AA = 35
-    NB_CA = 35
     try:
         PATH_PDB = sys.argv[1]
         PATH_FASTA = sys.argv[2]
         IN_DOPE = sys.argv[3]
-        OUT_DOPE = sys.argv[4]
+        NB_CA = int(sys.argv[4])
+        NB_AA = int(sys.argv[5])
         print("Prenez-vous un café, le calcul peut prendre un certain temps :p")
     except IndexError:
-        sys.exit("Non non non, il faut 4 arguments en tout, matez le README (è_é)")
+        sys.exit("Non non non, il faut 5 arguments en tout, matez le README (è_é)")
     liste_ca = pdb_parser(PATH_PDB)
     seq = fasta_parser(PATH_FASTA)
     dist_matrix = np.zeros((NB_AA, NB_CA))
@@ -127,8 +127,8 @@ if __name__ == '__main__':
 
     catch_number = re.compile("-{0,}[0-9]{1,}.[0-9]{1,}")
     catch_name = re.compile("[A-Z]{1,3}")
-    dope_limitator(IN_DOPE, OUT_DOPE)
-    liste_dope = dope_parser(OUT_DOPE)
+    dope_limitator(IN_DOPE)
+    liste_dope = dope_parser("dope_limited.txt")
     abreviation = {
         "A": "ALA", "C": "CYS", "D": "ASP", "E": "GLU", "F": "PHE",
         "G": "GLY", "H": "HIS", "I": "ILE", "L": "LEU", "K": "LYS", "M": "MET",
