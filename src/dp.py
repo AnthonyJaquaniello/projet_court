@@ -171,7 +171,7 @@ if __name__ == '__main__':
                           high_level_matrix[i, j-1]])
             #C'est le minimum de la Low_level_matrix correspondante qui est injecté
             #dans la case de la High level matrix.
-            high_level_matrix[i, j] = choice + prime_matrix[i-1, j-1, NB_AA, NB_CA])
+            high_level_matrix[i, j] = choice + prime_matrix[i-1, j-1, NB_AA, NB_CA]
     #Resultat final: c'est le minimum de la high-level matrix
     print("Score d'adéquation entre la séquence '{}' et la structure '{}' = {:.2f}"
           .format(PATH_FASTA, PATH_PDB, high_level_matrix[NB_AA, NB_CA]))
