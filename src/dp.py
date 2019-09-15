@@ -146,16 +146,19 @@ if __name__ == '__main__':
                     choice = min(low_level_matrix[k-1, l-1], low_level_matrix[k-1, l],
                                  low_level_matrix[k, l-1])
                     #On récupère la distance entre le carbone alpha fixé et l'actuel.
-                    distance = dist_matrix[j, l-1]
-                    try:
-                        #Conversion en potentiel énergétique.
-                        energy = dist_to_dope(distance, abreviation[seq[i]],
-                                              abreviation[seq[k-1]], liste_dope)
-                    except IndexError:
-                        #Si la distance entre 2 carbones alphas est trop grande,
-                        #l'énergie d'interaction est négligeable.
-                        energy = 0
-                    low_level_matrix[k, l] = choice + energy
+                    if (k-1 < i and l-1 > j) or (k-1 > i and l-1 < j):
+                        low_level_matrix[k, l] = 10 #Constante élevée pour forcer à passer par un certain chemin.
+                    else:
+                        distance = dist_matrix[j, l-1]
+                        try:
+                            #Conversion en potentiel énergétique.
+                            energy = dist_to_dope(distance, abreviation[seq[i]],
+                                                  abreviation[seq[k-1]], liste_dope)
+                        except IndexError:
+                            #Si la distance entre 2 carbones alphas est trop grande,
+                            #l'énergie d'interaction est négligeable.
+                            energy = 0
+                        low_level_matrix[k, l] = choice + energy
             prime_matrix[i, j, :, :] = low_level_matrix
 
     #Remplissage de la high_lvl_matrix:
