@@ -93,11 +93,6 @@ def dist_to_dope(dist, name_1, name_2, liste):
                     return (float(d["Energy"][floor(dist*4) - 1]) + float(d["Energy"][floor(dist*4)])) / 2
                 return 0
 
-def min_finder(matrix):
-    """Renvoie le minimum d'une matrice."""
-    liste = list(matrix.reshape(matrix.size))
-    return min(liste)
-
 if __name__ == '__main__':
 
     #Interface utilisateur
@@ -173,7 +168,7 @@ if __name__ == '__main__':
                           high_level_matrix[i, j-1]])
             #C'est le minimum de la Low_level_matrix correspondante qui est injecté
             #dans la case de la High level matrix.
-            high_level_matrix[i, j] = choice + min_finder(prime_matrix[i-1, j-1, :, :])
+            high_level_matrix[i, j] = choice + prime_matrix[i-1, j-1, NB_AA, NB_CA])
     #Resultat final: c'est le minimum de la high-level matrix
     print("Score d'adéquation entre la séquence '{}' et la structure '{}' = {:.2f}"
-          .format(PATH_FASTA, PATH_PDB, min_finder(high_level_matrix)))
+          .format(PATH_FASTA, PATH_PDB, high_level_matrix[NB_AA, NB_CA]))
