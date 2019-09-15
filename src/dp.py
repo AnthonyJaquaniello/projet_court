@@ -108,9 +108,9 @@ if __name__ == '__main__':
         IN_DOPE = sys.argv[3]
         NB_CA = int(sys.argv[4])
         NB_AA = int(sys.argv[5])
-        print("Prenez-vous un café, le calcul peut prendre un certain temps :p")
+        print("Prenez-vous un café, le calcul peut prendre un certain temps ^^")
     except IndexError:
-        sys.exit("Non non non, il faut 5 arguments en tout, matez le README (è_é)")
+        sys.exit("Erreur: YOU SHALL NOT PASS ! Il faut 5 arguments en tout, le README est votre ami (en plus il claque)")
     liste_ca = pdb_parser(PATH_PDB)
     seq = fasta_parser(PATH_FASTA)
     dist_matrix = np.zeros((NB_AA, NB_CA))
@@ -174,6 +174,6 @@ if __name__ == '__main__':
             #C'est le minimum de la Low_level_matrix correspondante qui est injecté
             #dans la case de la High level matrix.
             high_level_matrix[i, j] = choice + min_finder(prime_matrix[i-1, j-1, :, :])
-    #Resultat final:
+    #Resultat final: c'est le minimum de la high-level matrix
     print("Score d'adéquation entre la séquence '{}' et la structure '{}' = {:.2f}"
           .format(PATH_FASTA, PATH_PDB, min_finder(high_level_matrix)))
