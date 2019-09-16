@@ -1,0 +1,1 @@
+python3 ../src/dp.py ../data/pdb/1lry.pdb ../data/fasta/1lry.fasta.txt ../data/dope.par.txt 35 35
