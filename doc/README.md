@@ -1,7 +1,21 @@
+## Threading moléculaire par double programmation dynamique:
+
+Ce programme calcule une adéquation entre une structure protéique et une séquence en acides aminés (threading), fondé sur l'utilisation de la double programmation dynamique.
+
 ## Information préalable:
 
 * La complexité de l'algorithme de double programmation dynamique est n²*m² où n est la longueur de la séquence fasta et m le nombre de carbones alpha du template. Afin d'éviter une explosion de la complexité, éviter de dépasser n = 100 et m = 100.
 * Pour fonctionner, le programme a besoin d'un fichier de potentiel statistique (DOPE) (cf ci dessous)
+
+## Entrées:
+
+* Un fichier au format PDB
+* Un fichier au format FASTA
+* Un fichier de potentiel DOPE (au format .par.txt)
+
+## Sorties:
+
+Une valeur d'énergie en kcal.mol, correspondant à l'adéquation entre la structure et la séquence.
 
 ## Lancement:
 
