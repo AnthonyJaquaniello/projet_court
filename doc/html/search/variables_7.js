@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['path_5ffasta',['PATH_FASTA',['../namespacethreading.html#a7d9a5ba40e743a14c54553bc1e564108',1,'threading']]],
-  ['path_5fpdb',['PATH_PDB',['../namespacethreading.html#a60998a37a886fad0067c4fb8bec9ac9e',1,'threading']]],
-  ['prime_5fmatrix',['prime_matrix',['../namespacethreading.html#a4bf6668b5ff4576d65dc603a869eb53d',1,'threading']]]
+  ['name',['name',['../classdp_1_1CarbonAlpha.html#a8ebe56e2818c231370b3f8ae8b4b76f9',1,'dp::CarbonAlpha']]],
+  ['nb_5faa',['NB_AA',['../namespacedp.html#a96406242870c67c020a33658fcb9b82b',1,'dp']]],
+  ['nb_5fca',['NB_CA',['../namespacedp.html#adf55946f89f4c0fc8fef731a735393ed',1,'dp']]]
 ];

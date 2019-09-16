@@ -1,0 +1,203 @@
+\hypertarget{namespacedp}{}\section{Référence de l\textquotesingle{}espace de nommage dp}
+\label{namespacedp}\index{dp@{dp}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classdp_1_1CarbonAlpha}{Carbon\+Alpha}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacedp_a2efc9e97f366bbb035bcfb64e2c1d586}{pdb\+\_\+parser} (path\+\_\+to\+\_\+file)
+\item 
+def \hyperlink{namespacedp_a18f65f051a1b44c4c4f29a1084a1e2b5}{fasta\+\_\+parser} (path\+\_\+to\+\_\+file)
+\item 
+def \hyperlink{namespacedp_a3a7741f5f7d2e8023f2a1c2d35bd2fb0}{dope\+\_\+limitator} (dopin, dopout)
+\item 
+def \hyperlink{namespacedp_ae89d77b1b40672307f39db4453a7861a}{dope\+\_\+parser} (dope)
+\item 
+def \hyperlink{namespacedp_a45db1a33ee37d79569eb5dfa56bd621a}{dist\+\_\+to\+\_\+dope} (dist, name\+\_\+1, name\+\_\+2, liste)
+\item 
+def \hyperlink{namespacedp_a3f44712ec966315e39438691a4868b67}{min\+\_\+finder} (matrix)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{namespacedp_a96406242870c67c020a33658fcb9b82b}{N\+B\+\_\+\+AA} = 35
+\item 
+int \hyperlink{namespacedp_adf55946f89f4c0fc8fef731a735393ed}{N\+B\+\_\+\+CA} = 35
+\item 
+\hyperlink{namespacedp_a4a8cc3b163ef705fcc7e22164e1d853b}{P\+A\+T\+H\+\_\+\+P\+DB} = sys.\+argv\mbox{[}1\mbox{]}
+\item 
+\hyperlink{namespacedp_ab5681a4f480102975735e8f611b3e416}{P\+A\+T\+H\+\_\+\+F\+A\+S\+TA} = sys.\+argv\mbox{[}2\mbox{]}
+\item 
+\hyperlink{namespacedp_aacf1b000f9c49b46ee694751ae77dceb}{I\+N\+\_\+\+D\+O\+PE} = sys.\+argv\mbox{[}3\mbox{]}
+\item 
+\hyperlink{namespacedp_a055c79df05104c6fb6b2d71d14f33f2e}{O\+U\+T\+\_\+\+D\+O\+PE} = sys.\+argv\mbox{[}4\mbox{]}
+\item 
+\hyperlink{namespacedp_ae299bf173b08073dea4a36c55212f3d5}{liste\+\_\+ca} = \hyperlink{namespacedp_a2efc9e97f366bbb035bcfb64e2c1d586}{pdb\+\_\+parser}(\hyperlink{namespacedp_a4a8cc3b163ef705fcc7e22164e1d853b}{P\+A\+T\+H\+\_\+\+P\+DB})
+\item 
+\hyperlink{namespacedp_a60635934dcb82b1c274e6cceab216700}{seq} = \hyperlink{namespacedp_a18f65f051a1b44c4c4f29a1084a1e2b5}{fasta\+\_\+parser}(\hyperlink{namespacedp_ab5681a4f480102975735e8f611b3e416}{P\+A\+T\+H\+\_\+\+F\+A\+S\+TA})
+\item 
+\hyperlink{namespacedp_ac12fa4ce0fe851989027b7dbb12fa1c5}{dist\+\_\+matrix} = np.\+zeros((\hyperlink{namespacedp_a96406242870c67c020a33658fcb9b82b}{N\+B\+\_\+\+AA}, \hyperlink{namespacedp_adf55946f89f4c0fc8fef731a735393ed}{N\+B\+\_\+\+CA}))
+\item 
+\hyperlink{namespacedp_a18cc131ff5220f66fa5cf95066d82ed5}{catch\+\_\+number} = re.\+compile(\char`\"{}-\/\{0,\}\mbox{[}0-\/9\mbox{]}\{1,\}.\mbox{[}0-\/9\mbox{]}\{1,\}\char`\"{})
+\item 
+\hyperlink{namespacedp_aff02c78936c69d1c43ce85271bb6324c}{catch\+\_\+name} = re.\+compile(\char`\"{}\mbox{[}A-\/Z\mbox{]}\{1,3\}\char`\"{})
+\item 
+\hyperlink{namespacedp_a73f0f6fe49c927039bc37d60141be62a}{liste\+\_\+dope} = \hyperlink{namespacedp_ae89d77b1b40672307f39db4453a7861a}{dope\+\_\+parser}(\hyperlink{namespacedp_a055c79df05104c6fb6b2d71d14f33f2e}{O\+U\+T\+\_\+\+D\+O\+PE})
+\item 
+dictionary \hyperlink{namespacedp_aea761b6036de4d26e987f953c9567e16}{abreviation}
+\item 
+\hyperlink{namespacedp_a86f19141b28dd3816fa7a075f64c0631}{prime\+\_\+matrix} = np.\+zeros((\hyperlink{namespacedp_a96406242870c67c020a33658fcb9b82b}{N\+B\+\_\+\+AA}, \hyperlink{namespacedp_adf55946f89f4c0fc8fef731a735393ed}{N\+B\+\_\+\+CA}, dist\+\_\+matrix.\+shape\mbox{[}0\mbox{]} + 1, dist\+\_\+matrix.\+shape\mbox{[}1\mbox{]} + 1))
+\item 
+\hyperlink{namespacedp_aff0473794a64988faf25a2fd5199c6e8}{low\+\_\+level\+\_\+matrix} = np.\+zeros((\hyperlink{namespacedp_a96406242870c67c020a33658fcb9b82b}{N\+B\+\_\+\+AA} + 1, \hyperlink{namespacedp_adf55946f89f4c0fc8fef731a735393ed}{N\+B\+\_\+\+CA} + 1))
+\item 
+\hyperlink{namespacedp_a9e99e855e16f129cf3825084e5df1b9e}{choice}
+\item 
+\hyperlink{namespacedp_af9019add66a2cd91daf00423079dd7b9}{distance} = \hyperlink{namespacedp_ac12fa4ce0fe851989027b7dbb12fa1c5}{dist\+\_\+matrix}\mbox{[}j, l-\/1\mbox{]}
+\item 
+\hyperlink{namespacedp_afaae5c94c1ecff360cf10887f6d02f01}{energy}
+\item 
+\hyperlink{namespacedp_a10f426d4279ac852904b43e0ee3eb227}{high\+\_\+level\+\_\+matrix} = np.\+zeros((\hyperlink{namespacedp_a96406242870c67c020a33658fcb9b82b}{N\+B\+\_\+\+AA} + 1, \hyperlink{namespacedp_adf55946f89f4c0fc8fef731a735393ed}{N\+B\+\_\+\+CA} + 1))
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des fonctions}
+\index{dp@{dp}!dist\+\_\+to\+\_\+dope@{dist\+\_\+to\+\_\+dope}}
+\index{dist\+\_\+to\+\_\+dope@{dist\+\_\+to\+\_\+dope}!dp@{dp}}
+\subsubsection[{\texorpdfstring{dist\+\_\+to\+\_\+dope(dist, name\+\_\+1, name\+\_\+2, liste)}{dist_to_dope(dist, name_1, name_2, liste)}}]{\setlength{\rightskip}{0pt plus 5cm}def dp.\+dist\+\_\+to\+\_\+dope (
+\begin{DoxyParamCaption}
+\item[{}]{dist, }
+\item[{}]{name\+\_\+1, }
+\item[{}]{name\+\_\+2, }
+\item[{}]{liste}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacedp_a45db1a33ee37d79569eb5dfa56bd621a}{}\label{namespacedp_a45db1a33ee37d79569eb5dfa56bd621a}
+\begin{DoxyVerb}Fais la conversion entre une distance entre deux résidus, et un
+potentiel DOPE dans la structure de donnée 'liste'.
+Nécessite le nom des deux résidus dont la distance a été évaluée.\end{DoxyVerb}
+ \index{dp@{dp}!dope\+\_\+limitator@{dope\+\_\+limitator}}
+\index{dope\+\_\+limitator@{dope\+\_\+limitator}!dp@{dp}}
+\subsubsection[{\texorpdfstring{dope\+\_\+limitator(dopin, dopout)}{dope_limitator(dopin, dopout)}}]{\setlength{\rightskip}{0pt plus 5cm}def dp.\+dope\+\_\+limitator (
+\begin{DoxyParamCaption}
+\item[{}]{dopin, }
+\item[{}]{dopout}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacedp_a3a7741f5f7d2e8023f2a1c2d35bd2fb0}{}\label{namespacedp_a3a7741f5f7d2e8023f2a1c2d35bd2fb0}
+\begin{DoxyVerb}N'extrait du fichier dope initial, que les lignes décrivant des
+interactions entre carbones alphas. Elle crée un fichier dope
+condensé ne contenant que ces interactions.\end{DoxyVerb}
+ \index{dp@{dp}!dope\+\_\+parser@{dope\+\_\+parser}}
+\index{dope\+\_\+parser@{dope\+\_\+parser}!dp@{dp}}
+\subsubsection[{\texorpdfstring{dope\+\_\+parser(dope)}{dope_parser(dope)}}]{\setlength{\rightskip}{0pt plus 5cm}def dp.\+dope\+\_\+parser (
+\begin{DoxyParamCaption}
+\item[{}]{dope}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacedp_ae89d77b1b40672307f39db4453a7861a}{}\label{namespacedp_ae89d77b1b40672307f39db4453a7861a}
+\begin{DoxyVerb}Fonction qui parse le fichier dope en input et renvoie une liste de dictionnaire.\end{DoxyVerb}
+ \index{dp@{dp}!fasta\+\_\+parser@{fasta\+\_\+parser}}
+\index{fasta\+\_\+parser@{fasta\+\_\+parser}!dp@{dp}}
+\subsubsection[{\texorpdfstring{fasta\+\_\+parser(path\+\_\+to\+\_\+file)}{fasta_parser(path_to_file)}}]{\setlength{\rightskip}{0pt plus 5cm}def dp.\+fasta\+\_\+parser (
+\begin{DoxyParamCaption}
+\item[{}]{path\+\_\+to\+\_\+file}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacedp_a18f65f051a1b44c4c4f29a1084a1e2b5}{}\label{namespacedp_a18f65f051a1b44c4c4f29a1084a1e2b5}
+\begin{DoxyVerb}Fonction qui va parcourir un fichier fasta pour extraire tous les acides aminés.
+Elle renvoie une chaine de caractère.\end{DoxyVerb}
+ \index{dp@{dp}!min\+\_\+finder@{min\+\_\+finder}}
+\index{min\+\_\+finder@{min\+\_\+finder}!dp@{dp}}
+\subsubsection[{\texorpdfstring{min\+\_\+finder(matrix)}{min_finder(matrix)}}]{\setlength{\rightskip}{0pt plus 5cm}def dp.\+min\+\_\+finder (
+\begin{DoxyParamCaption}
+\item[{}]{matrix}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacedp_a3f44712ec966315e39438691a4868b67}{}\label{namespacedp_a3f44712ec966315e39438691a4868b67}
+\begin{DoxyVerb}Renvoie le minimum d'une matrice.\end{DoxyVerb}
+ \index{dp@{dp}!pdb\+\_\+parser@{pdb\+\_\+parser}}
+\index{pdb\+\_\+parser@{pdb\+\_\+parser}!dp@{dp}}
+\subsubsection[{\texorpdfstring{pdb\+\_\+parser(path\+\_\+to\+\_\+file)}{pdb_parser(path_to_file)}}]{\setlength{\rightskip}{0pt plus 5cm}def dp.\+pdb\+\_\+parser (
+\begin{DoxyParamCaption}
+\item[{}]{path\+\_\+to\+\_\+file}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacedp_a2efc9e97f366bbb035bcfb64e2c1d586}{}\label{namespacedp_a2efc9e97f366bbb035bcfb64e2c1d586}
+\begin{DoxyVerb}Fonction qui va parser un fichier pdb afin d'extraire les positions
+x,y,et z de chaque carbone alpha. Renvoie une liste d'objets carbon_alpha\end{DoxyVerb}
+ 
+
+\subsection{Documentation des variables}
+\index{dp@{dp}!abreviation@{abreviation}}
+\index{abreviation@{abreviation}!dp@{dp}}
+\subsubsection[{\texorpdfstring{abreviation}{abreviation}}]{\setlength{\rightskip}{0pt plus 5cm}dictionary dp.\+abreviation}\hypertarget{namespacedp_aea761b6036de4d26e987f953c9567e16}{}\label{namespacedp_aea761b6036de4d26e987f953c9567e16}
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}
+1 = \{
+2         \textcolor{stringliteral}{"A"}: \textcolor{stringliteral}{"ALA"}, \textcolor{stringliteral}{"C"}: \textcolor{stringliteral}{"CYS"}, \textcolor{stringliteral}{"D"}: \textcolor{stringliteral}{"ASP"}, \textcolor{stringliteral}{"E"}: \textcolor{stringliteral}{"GLU"}, \textcolor{stringliteral}{"F"}: \textcolor{stringliteral}{"PHE"},
+3         \textcolor{stringliteral}{"G"}: \textcolor{stringliteral}{"GLY"}, \textcolor{stringliteral}{"H"}: \textcolor{stringliteral}{"HIS"}, \textcolor{stringliteral}{"I"}: \textcolor{stringliteral}{"ILE"}, \textcolor{stringliteral}{"L"}: \textcolor{stringliteral}{"LEU"}, \textcolor{stringliteral}{"K"}: \textcolor{stringliteral}{"LYS"}, \textcolor{stringliteral}{"M"}: \textcolor{stringliteral}{"MET"},
+4         \textcolor{stringliteral}{"N"}: \textcolor{stringliteral}{"ASN"}, \textcolor{stringliteral}{"P"}: \textcolor{stringliteral}{"PRO"}, \textcolor{stringliteral}{"Q"}: \textcolor{stringliteral}{"GLN"}, \textcolor{stringliteral}{"R": "}ARG", "S": "SER", "T": "THR",
+5         \textcolor{stringliteral}{"V"}: \textcolor{stringliteral}{"VAL"}, \textcolor{stringliteral}{"W"}: \textcolor{stringliteral}{"TRP"}, \textcolor{stringliteral}{"Y"}: \textcolor{stringliteral}{"TYR"}
+6     \}
+\end{DoxyCode}
+\index{dp@{dp}!catch\+\_\+name@{catch\+\_\+name}}
+\index{catch\+\_\+name@{catch\+\_\+name}!dp@{dp}}
+\subsubsection[{\texorpdfstring{catch\+\_\+name}{catch_name}}]{\setlength{\rightskip}{0pt plus 5cm}dp.\+catch\+\_\+name = re.\+compile(\char`\"{}\mbox{[}A-\/Z\mbox{]}\{1,3\}\char`\"{})}\hypertarget{namespacedp_aff02c78936c69d1c43ce85271bb6324c}{}\label{namespacedp_aff02c78936c69d1c43ce85271bb6324c}
+\index{dp@{dp}!catch\+\_\+number@{catch\+\_\+number}}
+\index{catch\+\_\+number@{catch\+\_\+number}!dp@{dp}}
+\subsubsection[{\texorpdfstring{catch\+\_\+number}{catch_number}}]{\setlength{\rightskip}{0pt plus 5cm}dp.\+catch\+\_\+number = re.\+compile(\char`\"{}-\/\{0,\}\mbox{[}0-\/9\mbox{]}\{1,\}.\mbox{[}0-\/9\mbox{]}\{1,\}\char`\"{})}\hypertarget{namespacedp_a18cc131ff5220f66fa5cf95066d82ed5}{}\label{namespacedp_a18cc131ff5220f66fa5cf95066d82ed5}
+\index{dp@{dp}!choice@{choice}}
+\index{choice@{choice}!dp@{dp}}
+\subsubsection[{\texorpdfstring{choice}{choice}}]{\setlength{\rightskip}{0pt plus 5cm}dp.\+choice}\hypertarget{namespacedp_a9e99e855e16f129cf3825084e5df1b9e}{}\label{namespacedp_a9e99e855e16f129cf3825084e5df1b9e}
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}
+1 = min(low\_level\_matrix[k-1, l-1], low\_level\_matrix[k-1, l],
+2                                  low\_level\_matrix[k, l-1])
+\end{DoxyCode}
+\index{dp@{dp}!dist\+\_\+matrix@{dist\+\_\+matrix}}
+\index{dist\+\_\+matrix@{dist\+\_\+matrix}!dp@{dp}}
+\subsubsection[{\texorpdfstring{dist\+\_\+matrix}{dist_matrix}}]{\setlength{\rightskip}{0pt plus 5cm}dp.\+dist\+\_\+matrix = np.\+zeros(({\bf N\+B\+\_\+\+AA}, {\bf N\+B\+\_\+\+CA}))}\hypertarget{namespacedp_ac12fa4ce0fe851989027b7dbb12fa1c5}{}\label{namespacedp_ac12fa4ce0fe851989027b7dbb12fa1c5}
+\index{dp@{dp}!distance@{distance}}
+\index{distance@{distance}!dp@{dp}}
+\subsubsection[{\texorpdfstring{distance}{distance}}]{\setlength{\rightskip}{0pt plus 5cm}dp.\+distance = {\bf dist\+\_\+matrix}\mbox{[}j, l-\/1\mbox{]}}\hypertarget{namespacedp_af9019add66a2cd91daf00423079dd7b9}{}\label{namespacedp_af9019add66a2cd91daf00423079dd7b9}
+\index{dp@{dp}!energy@{energy}}
+\index{energy@{energy}!dp@{dp}}
+\subsubsection[{\texorpdfstring{energy}{energy}}]{\setlength{\rightskip}{0pt plus 5cm}int dp.\+energy}\hypertarget{namespacedp_afaae5c94c1ecff360cf10887f6d02f01}{}\label{namespacedp_afaae5c94c1ecff360cf10887f6d02f01}
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}
+1 = \hyperlink{namespacedp_a45db1a33ee37d79569eb5dfa56bd621a}{dist\_to\_dope}(distance, abreviation[seq[i]],
+2                                               abreviation[seq[k-1]], liste\_dope)
+\end{DoxyCode}
+\index{dp@{dp}!high\+\_\+level\+\_\+matrix@{high\+\_\+level\+\_\+matrix}}
+\index{high\+\_\+level\+\_\+matrix@{high\+\_\+level\+\_\+matrix}!dp@{dp}}
+\subsubsection[{\texorpdfstring{high\+\_\+level\+\_\+matrix}{high_level_matrix}}]{\setlength{\rightskip}{0pt plus 5cm}dp.\+high\+\_\+level\+\_\+matrix = np.\+zeros(({\bf N\+B\+\_\+\+AA} + 1, {\bf N\+B\+\_\+\+CA} + 1))}\hypertarget{namespacedp_a10f426d4279ac852904b43e0ee3eb227}{}\label{namespacedp_a10f426d4279ac852904b43e0ee3eb227}
+\index{dp@{dp}!I\+N\+\_\+\+D\+O\+PE@{I\+N\+\_\+\+D\+O\+PE}}
+\index{I\+N\+\_\+\+D\+O\+PE@{I\+N\+\_\+\+D\+O\+PE}!dp@{dp}}
+\subsubsection[{\texorpdfstring{I\+N\+\_\+\+D\+O\+PE}{IN_DOPE}}]{\setlength{\rightskip}{0pt plus 5cm}dp.\+I\+N\+\_\+\+D\+O\+PE = sys.\+argv\mbox{[}3\mbox{]}}\hypertarget{namespacedp_aacf1b000f9c49b46ee694751ae77dceb}{}\label{namespacedp_aacf1b000f9c49b46ee694751ae77dceb}
+\index{dp@{dp}!liste\+\_\+ca@{liste\+\_\+ca}}
+\index{liste\+\_\+ca@{liste\+\_\+ca}!dp@{dp}}
+\subsubsection[{\texorpdfstring{liste\+\_\+ca}{liste_ca}}]{\setlength{\rightskip}{0pt plus 5cm}dp.\+liste\+\_\+ca = {\bf pdb\+\_\+parser}({\bf P\+A\+T\+H\+\_\+\+P\+DB})}\hypertarget{namespacedp_ae299bf173b08073dea4a36c55212f3d5}{}\label{namespacedp_ae299bf173b08073dea4a36c55212f3d5}
+\index{dp@{dp}!liste\+\_\+dope@{liste\+\_\+dope}}
+\index{liste\+\_\+dope@{liste\+\_\+dope}!dp@{dp}}
+\subsubsection[{\texorpdfstring{liste\+\_\+dope}{liste_dope}}]{\setlength{\rightskip}{0pt plus 5cm}dp.\+liste\+\_\+dope = {\bf dope\+\_\+parser}({\bf O\+U\+T\+\_\+\+D\+O\+PE})}\hypertarget{namespacedp_a73f0f6fe49c927039bc37d60141be62a}{}\label{namespacedp_a73f0f6fe49c927039bc37d60141be62a}
+\index{dp@{dp}!low\+\_\+level\+\_\+matrix@{low\+\_\+level\+\_\+matrix}}
+\index{low\+\_\+level\+\_\+matrix@{low\+\_\+level\+\_\+matrix}!dp@{dp}}
+\subsubsection[{\texorpdfstring{low\+\_\+level\+\_\+matrix}{low_level_matrix}}]{\setlength{\rightskip}{0pt plus 5cm}dp.\+low\+\_\+level\+\_\+matrix = np.\+zeros(({\bf N\+B\+\_\+\+AA} + 1, {\bf N\+B\+\_\+\+CA} + 1))}\hypertarget{namespacedp_aff0473794a64988faf25a2fd5199c6e8}{}\label{namespacedp_aff0473794a64988faf25a2fd5199c6e8}
+\index{dp@{dp}!N\+B\+\_\+\+AA@{N\+B\+\_\+\+AA}}
+\index{N\+B\+\_\+\+AA@{N\+B\+\_\+\+AA}!dp@{dp}}
+\subsubsection[{\texorpdfstring{N\+B\+\_\+\+AA}{NB_AA}}]{\setlength{\rightskip}{0pt plus 5cm}int dp.\+N\+B\+\_\+\+AA = 35}\hypertarget{namespacedp_a96406242870c67c020a33658fcb9b82b}{}\label{namespacedp_a96406242870c67c020a33658fcb9b82b}
+\index{dp@{dp}!N\+B\+\_\+\+CA@{N\+B\+\_\+\+CA}}
+\index{N\+B\+\_\+\+CA@{N\+B\+\_\+\+CA}!dp@{dp}}
+\subsubsection[{\texorpdfstring{N\+B\+\_\+\+CA}{NB_CA}}]{\setlength{\rightskip}{0pt plus 5cm}int dp.\+N\+B\+\_\+\+CA = 35}\hypertarget{namespacedp_adf55946f89f4c0fc8fef731a735393ed}{}\label{namespacedp_adf55946f89f4c0fc8fef731a735393ed}
+\index{dp@{dp}!O\+U\+T\+\_\+\+D\+O\+PE@{O\+U\+T\+\_\+\+D\+O\+PE}}
+\index{O\+U\+T\+\_\+\+D\+O\+PE@{O\+U\+T\+\_\+\+D\+O\+PE}!dp@{dp}}
+\subsubsection[{\texorpdfstring{O\+U\+T\+\_\+\+D\+O\+PE}{OUT_DOPE}}]{\setlength{\rightskip}{0pt plus 5cm}dp.\+O\+U\+T\+\_\+\+D\+O\+PE = sys.\+argv\mbox{[}4\mbox{]}}\hypertarget{namespacedp_a055c79df05104c6fb6b2d71d14f33f2e}{}\label{namespacedp_a055c79df05104c6fb6b2d71d14f33f2e}
+\index{dp@{dp}!P\+A\+T\+H\+\_\+\+F\+A\+S\+TA@{P\+A\+T\+H\+\_\+\+F\+A\+S\+TA}}
+\index{P\+A\+T\+H\+\_\+\+F\+A\+S\+TA@{P\+A\+T\+H\+\_\+\+F\+A\+S\+TA}!dp@{dp}}
+\subsubsection[{\texorpdfstring{P\+A\+T\+H\+\_\+\+F\+A\+S\+TA}{PATH_FASTA}}]{\setlength{\rightskip}{0pt plus 5cm}dp.\+P\+A\+T\+H\+\_\+\+F\+A\+S\+TA = sys.\+argv\mbox{[}2\mbox{]}}\hypertarget{namespacedp_ab5681a4f480102975735e8f611b3e416}{}\label{namespacedp_ab5681a4f480102975735e8f611b3e416}
+\index{dp@{dp}!P\+A\+T\+H\+\_\+\+P\+DB@{P\+A\+T\+H\+\_\+\+P\+DB}}
+\index{P\+A\+T\+H\+\_\+\+P\+DB@{P\+A\+T\+H\+\_\+\+P\+DB}!dp@{dp}}
+\subsubsection[{\texorpdfstring{P\+A\+T\+H\+\_\+\+P\+DB}{PATH_PDB}}]{\setlength{\rightskip}{0pt plus 5cm}dp.\+P\+A\+T\+H\+\_\+\+P\+DB = sys.\+argv\mbox{[}1\mbox{]}}\hypertarget{namespacedp_a4a8cc3b163ef705fcc7e22164e1d853b}{}\label{namespacedp_a4a8cc3b163ef705fcc7e22164e1d853b}
+\index{dp@{dp}!prime\+\_\+matrix@{prime\+\_\+matrix}}
+\index{prime\+\_\+matrix@{prime\+\_\+matrix}!dp@{dp}}
+\subsubsection[{\texorpdfstring{prime\+\_\+matrix}{prime_matrix}}]{\setlength{\rightskip}{0pt plus 5cm}dp.\+prime\+\_\+matrix = np.\+zeros(({\bf N\+B\+\_\+\+AA}, {\bf N\+B\+\_\+\+CA}, dist\+\_\+matrix.\+shape\mbox{[}0\mbox{]} + 1, dist\+\_\+matrix.\+shape\mbox{[}1\mbox{]} + 1))}\hypertarget{namespacedp_a86f19141b28dd3816fa7a075f64c0631}{}\label{namespacedp_a86f19141b28dd3816fa7a075f64c0631}
+\index{dp@{dp}!seq@{seq}}
+\index{seq@{seq}!dp@{dp}}
+\subsubsection[{\texorpdfstring{seq}{seq}}]{\setlength{\rightskip}{0pt plus 5cm}dp.\+seq = {\bf fasta\+\_\+parser}({\bf P\+A\+T\+H\+\_\+\+F\+A\+S\+TA})}\hypertarget{namespacedp_a60635934dcb82b1c274e6cceab216700}{}\label{namespacedp_a60635934dcb82b1c274e6cceab216700}

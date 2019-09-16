@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['euclidean_5fdist',['euclidean_dist',['../classthreading_1_1CarbonAlpha.html#a1f095932071f49b62809c15e79c8f4bc',1,'threading::CarbonAlpha']]]
+  ['euclidean_5fdist',['euclidean_dist',['../classdp_1_1CarbonAlpha.html#a0bf3e9d4d09558d9a9f3de2e2068e0f9',1,'dp::CarbonAlpha']]]
 ];

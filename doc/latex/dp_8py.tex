@@ -1,0 +1,68 @@
+\hypertarget{dp_8py}{}\section{Référence du fichier dp.\+py}
+\label{dp_8py}\index{dp.\+py@{dp.\+py}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classdp_1_1CarbonAlpha}{dp.\+Carbon\+Alpha}
+\end{DoxyCompactItemize}
+\subsection*{Espaces de nommage}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacedp}{dp}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacedp_a2efc9e97f366bbb035bcfb64e2c1d586}{dp.\+pdb\+\_\+parser} (path\+\_\+to\+\_\+file)
+\item 
+def \hyperlink{namespacedp_a18f65f051a1b44c4c4f29a1084a1e2b5}{dp.\+fasta\+\_\+parser} (path\+\_\+to\+\_\+file)
+\item 
+def \hyperlink{namespacedp_a3a7741f5f7d2e8023f2a1c2d35bd2fb0}{dp.\+dope\+\_\+limitator} (dopin, dopout)
+\item 
+def \hyperlink{namespacedp_ae89d77b1b40672307f39db4453a7861a}{dp.\+dope\+\_\+parser} (dope)
+\item 
+def \hyperlink{namespacedp_a45db1a33ee37d79569eb5dfa56bd621a}{dp.\+dist\+\_\+to\+\_\+dope} (dist, name\+\_\+1, name\+\_\+2, liste)
+\item 
+def \hyperlink{namespacedp_a3f44712ec966315e39438691a4868b67}{dp.\+min\+\_\+finder} (matrix)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{namespacedp_a96406242870c67c020a33658fcb9b82b}{dp.\+N\+B\+\_\+\+AA} = 35
+\item 
+int \hyperlink{namespacedp_adf55946f89f4c0fc8fef731a735393ed}{dp.\+N\+B\+\_\+\+CA} = 35
+\item 
+\hyperlink{namespacedp_a4a8cc3b163ef705fcc7e22164e1d853b}{dp.\+P\+A\+T\+H\+\_\+\+P\+DB} = sys.\+argv\mbox{[}1\mbox{]}
+\item 
+\hyperlink{namespacedp_ab5681a4f480102975735e8f611b3e416}{dp.\+P\+A\+T\+H\+\_\+\+F\+A\+S\+TA} = sys.\+argv\mbox{[}2\mbox{]}
+\item 
+\hyperlink{namespacedp_aacf1b000f9c49b46ee694751ae77dceb}{dp.\+I\+N\+\_\+\+D\+O\+PE} = sys.\+argv\mbox{[}3\mbox{]}
+\item 
+\hyperlink{namespacedp_a055c79df05104c6fb6b2d71d14f33f2e}{dp.\+O\+U\+T\+\_\+\+D\+O\+PE} = sys.\+argv\mbox{[}4\mbox{]}
+\item 
+\hyperlink{namespacedp_ae299bf173b08073dea4a36c55212f3d5}{dp.\+liste\+\_\+ca} = pdb\+\_\+parser(P\+A\+T\+H\+\_\+\+P\+DB)
+\item 
+\hyperlink{namespacedp_a60635934dcb82b1c274e6cceab216700}{dp.\+seq} = fasta\+\_\+parser(P\+A\+T\+H\+\_\+\+F\+A\+S\+TA)
+\item 
+\hyperlink{namespacedp_ac12fa4ce0fe851989027b7dbb12fa1c5}{dp.\+dist\+\_\+matrix} = np.\+zeros((N\+B\+\_\+\+AA, N\+B\+\_\+\+CA))
+\item 
+\hyperlink{namespacedp_a18cc131ff5220f66fa5cf95066d82ed5}{dp.\+catch\+\_\+number} = re.\+compile(\char`\"{}-\/\{0,\}\mbox{[}0-\/9\mbox{]}\{1,\}.\mbox{[}0-\/9\mbox{]}\{1,\}\char`\"{})
+\item 
+\hyperlink{namespacedp_aff02c78936c69d1c43ce85271bb6324c}{dp.\+catch\+\_\+name} = re.\+compile(\char`\"{}\mbox{[}A-\/Z\mbox{]}\{1,3\}\char`\"{})
+\item 
+\hyperlink{namespacedp_a73f0f6fe49c927039bc37d60141be62a}{dp.\+liste\+\_\+dope} = dope\+\_\+parser(O\+U\+T\+\_\+\+D\+O\+PE)
+\item 
+dictionary \hyperlink{namespacedp_aea761b6036de4d26e987f953c9567e16}{dp.\+abreviation}
+\item 
+\hyperlink{namespacedp_a86f19141b28dd3816fa7a075f64c0631}{dp.\+prime\+\_\+matrix} = np.\+zeros((N\+B\+\_\+\+AA, N\+B\+\_\+\+CA, dist\+\_\+matrix.\+shape\mbox{[}0\mbox{]} + 1, dist\+\_\+matrix.\+shape\mbox{[}1\mbox{]} + 1))
+\item 
+\hyperlink{namespacedp_aff0473794a64988faf25a2fd5199c6e8}{dp.\+low\+\_\+level\+\_\+matrix} = np.\+zeros((N\+B\+\_\+\+AA + 1, N\+B\+\_\+\+CA + 1))
+\item 
+\hyperlink{namespacedp_a9e99e855e16f129cf3825084e5df1b9e}{dp.\+choice}
+\item 
+\hyperlink{namespacedp_af9019add66a2cd91daf00423079dd7b9}{dp.\+distance} = dist\+\_\+matrix\mbox{[}j, l-\/1\mbox{]}
+\item 
+\hyperlink{namespacedp_afaae5c94c1ecff360cf10887f6d02f01}{dp.\+energy}
+\item 
+\hyperlink{namespacedp_a10f426d4279ac852904b43e0ee3eb227}{dp.\+high\+\_\+level\+\_\+matrix} = np.\+zeros((N\+B\+\_\+\+AA + 1, N\+B\+\_\+\+CA + 1))
+\end{DoxyCompactItemize}
