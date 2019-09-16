@@ -24,6 +24,20 @@ import numpy as np
 # 4) Protein Structure Comparison Using SAP - Springer\n
 # 5) http://www.dsimb.inserm.fr/~gelly/doc/dope.par
 
+class TestClasse:
+    def pdb_test(self, file_name):
+        assert ".pdb" in file_name
+    def dist_matrix_test(self, matrix):
+        assert matrix.size != 0
+    def fasta_test(self, file_name):
+        assert ".fa" in file_name
+    def dim_test(self, nb_aa, nb_ca):
+        assert (nb_aa != 0 and nb_ca != 0)
+    def low_lvl_test(self, matrix):
+        assert matrix.size != 0
+    def high_lvl_test(self, matrix):
+        assert matrix.size != 0
+
 class CarbonAlpha:
     """Classe représentant un carbone alpha de manière géométrique
     (coordonnées dans le plan et facteurs physico-chimiques."""
@@ -35,6 +49,7 @@ class CarbonAlpha:
     def euclidean_dist(self, ca):
         """On passe a la méthode notre objet et un autre objet de la classe carbon_alpha."""
         return sqrt((self.x - ca.x)**2 + (self.y - ca.y)**2 + (self.z- ca.z)**2)
+
 def pdb_parser(path_to_file):
     """Fonction qui va parser un fichier pdb afin d'extraire les positions
     x,y,et z de chaque carbone alpha. Renvoie une liste d'objets carbon_alpha"""
@@ -103,6 +118,10 @@ if __name__ == '__main__':
         IN_DOPE = sys.argv[3]
         NB_CA = int(sys.argv[4])
         NB_AA = int(sys.argv[5])
+        test = TestClasse()
+        test.pdb_test(PATH_PDB)
+        test.fasta_test(PATH_FASTA)
+        test.dim_test(NB_AA, NB_CA)
         print("Prenez-vous un café, le calcul peut prendre un certain temps ^^")
     except IndexError:
         sys.exit("Erreur: YOU SHALL NOT PASS ! Il faut 5 arguments en tout, le README est votre ami (en plus il claque)")
@@ -116,7 +135,7 @@ if __name__ == '__main__':
     for i in range(0, dist_matrix.shape[0]):
         for j in range(0, dist_matrix.shape[1]):
             dist_matrix[i, j] = liste_ca[i].euclidean_dist(liste_ca[j])
-
+    test.dist_matrix_test(dist_matrix)
     #Dans un second temps on va devoir relier l'information de distance
     #avec un potentiel DOPE dans le fichier.dope donné en entrée.
 
@@ -147,7 +166,7 @@ if __name__ == '__main__':
                                  low_level_matrix[k, l-1])
                     #On récupère la distance entre le carbone alpha fixé et l'actuel.
                     if (k-1 < i and l-1 > j) or (k-1 > i and l-1 < j):
-                        low_level_matrix[k, l] = 10 #Constante élevée pour forcer à passer par un certain chemin.
+                        low_level_matrix[k, l] = 50 #Constante élevée pour forcer à passer par un certain chemin.
                     else:
                         distance = dist_matrix[j, l-1]
                         try:
@@ -159,6 +178,7 @@ if __name__ == '__main__':
                             #l'énergie d'interaction est négligeable.
                             energy = 0
                         low_level_matrix[k, l] = choice + energy
+            test.low_lvl_test(low_level_matrix)
             prime_matrix[i, j, :, :] = low_level_matrix
 
     #Remplissage de la high_lvl_matrix:
@@ -172,6 +192,7 @@ if __name__ == '__main__':
             #C'est le minimum de la Low_level_matrix correspondante qui est injecté
             #dans la case de la High level matrix.
             high_level_matrix[i, j] = choice + prime_matrix[i-1, j-1, NB_AA, NB_CA]
+    test.high_lvl_test(high_level_matrix)
     #Resultat final: c'est le minimum de la high-level matrix
     print("Score d'adéquation entre la séquence '{}' et la structure '{}' = {:.2f}"
           .format(PATH_FASTA, PATH_PDB, high_level_matrix[NB_AA, NB_CA]))
