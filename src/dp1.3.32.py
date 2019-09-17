@@ -151,12 +151,12 @@ if __name__ == '__main__':
         "V": "VAL", "W": "TRP", "Y": "TYR"
     }
 
-    prime_matrix = np.zeros((NB_AA, NB_CA, dist_matrix.shape[0] + 1, dist_matrix.shape[1] + 1))
+    prime_matrix = np.zeros((NB_AA + 1, NB_CA + 1, dist_matrix.shape[0] + 1, dist_matrix.shape[1] + 1))
     #On stocke dans chaque case de cette matrice, une low_level_matrix.
     #Construction des low_lvl_matrix selon un algorithme de Needleman&Wunsch:
 
-    for i in range(0, NB_AA): #résidu
-        for j in range(0, NB_CA): #ca
+    for i in range(1, prime_matrix.shape[0]): #résidu
+        for j in range(1, prime_matrix.shape[1]): #ca
             #pour chaque couple on doit créer une low level matrix
             low_level_matrix = np.zeros((NB_AA + 1, NB_CA + 1))
             for k in range(1, low_level_matrix.shape[0]):
@@ -166,13 +166,13 @@ if __name__ == '__main__':
                     choice = min(low_level_matrix[k-1, l-1], low_level_matrix[k-1, l],
                                  low_level_matrix[k, l-1])
                     #On récupère la distance entre le carbone alpha fixé et l'actuel.
-                    if (k-1 < i and l-1 > j) or (k-1 > i and l-1 < j):
+                    if (k < i and l > j) or (k > i and l < j):
                         low_level_matrix[k, l] = 50 #Constante élevée pour forcer à passer par un certain chemin.
                     else:
-                        distance = dist_matrix[j, l-1]
+                        distance = dist_matrix[j-1, l-1]
                         try:
                             #Conversion en potentiel énergétique.
-                            energy = dist_to_dope(distance, abreviation[seq[i]],
+                            energy = dist_to_dope(distance, abreviation[seq[i-1]],
                                                   abreviation[seq[k-1]], liste_dope)
                         except IndexError:
                             #Si la distance entre 2 carbones alphas est trop grande,
@@ -192,7 +192,7 @@ if __name__ == '__main__':
                           high_level_matrix[i, j-1]])
             #C'est le minimum de la Low_level_matrix correspondante qui est injecté
             #dans la case de la High level matrix.
-            high_level_matrix[i, j] = choice + prime_matrix[i-1, j-1, NB_AA, NB_CA]
+            high_level_matrix[i, j] = choice + prime_matrix[i, j, NB_AA, NB_CA]
     test.high_lvl_test(high_level_matrix)
     #Resultat final: c'est le minimum de la high-level matrix
     print("Score d'adéquation entre la séquence '{}' et la structure '{}' = {:.2f}"
