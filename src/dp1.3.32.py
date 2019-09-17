@@ -77,6 +77,7 @@ def dope_limitator(dopin):
     """N'extrait du fichier dope initial, que les lignes décrivant des
     interactions entre carbones alphas. Elle crée un fichier dope
     condensé ne contenant que ces interactions."""
+    catch_name = re.compile("[A-Z]{1,3}")
     with open(dopin, "r") as filin, open("dope_limited.txt", "w") as filout:
         for line in filin:
             name = re.findall(catch_name, line)
@@ -86,6 +87,8 @@ def dope_limitator(dopin):
 
 def dope_parser(dope):
     """Fonction qui parse le fichier dope en input et renvoie une liste de dictionnaire."""
+    catch_number = re.compile("-{0,}[0-9]{1,}.[0-9]{1,}")
+    catch_name = re.compile("[A-Z]{1,3}")
     with open(dope, "r") as filin:
         liste_dope = []
         for line in filin:
@@ -105,7 +108,7 @@ def dist_to_dope(dist, name_1, name_2, liste):
         if d["AA_1"] == name_1:
             if d["AA_2"] == name_2:
                 if dist != 0:
-                    return (float(d["Energy"][floor(dist*4) - 1]) + float(d["Energy"][floor(dist*4)])) / 2
+                    return float(d["Energy"][floor(dist*4)])
                 return 0
 
 if __name__ == '__main__':
@@ -139,8 +142,6 @@ if __name__ == '__main__':
     #Dans un second temps on va devoir relier l'information de distance
     #avec un potentiel DOPE dans le fichier.dope donné en entrée.
 
-    catch_number = re.compile("-{0,}[0-9]{1,}.[0-9]{1,}")
-    catch_name = re.compile("[A-Z]{1,3}")
     dope_limitator(IN_DOPE)
     liste_dope = dope_parser("dope_limited.txt")
     abreviation = {
