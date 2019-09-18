@@ -65,7 +65,8 @@ def pdb_parser(path_to_file):
                                 float(line[30:38].strip()),
                                 float(line[38:46].strip()),
                                 float(line[46:54].strip()))
-                    for line in filin if line[12:16].strip() == "CA"]
+                    for line in filin if line[12:16].strip() == "CA" and
+                    line[0:6].strip() != "ANISOU"]
     return liste_ca
 
 def fasta_parser(path_to_file):
