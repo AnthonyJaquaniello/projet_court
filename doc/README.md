@@ -37,6 +37,7 @@ python3 dp.py <\arg1> <\arg2> <\arg3> <\arg4> <\arg5>
 
 Pour effectuer un test du programme nous avons mit à disposition quelques fichiers fasta et pdb sur le dépôt github associé:
 **https://github.com/AnthonyJaquaniello/projet_court**
+Dans la dossier data.
 
 ### Signification du résultat:
 
