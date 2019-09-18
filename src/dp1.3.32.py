@@ -25,17 +25,24 @@ import numpy as np
 # 5) http://www.dsimb.inserm.fr/~gelly/doc/dope.par
 
 class TestClasse:
+    """Classe regroupant diffèrentes méthodes de tests."""
     def pdb_test(self, file_name):
+        """Test si le fichier porte l'extension .pdb."""
         assert ".pdb" in file_name
     def dist_matrix_test(self, matrix):
+        """Test si la taille de la matrice n'est pas nulle."""
         assert matrix.size != 0
     def fasta_test(self, file_name):
+        """Test si le fichier porte l'extension .fa/.fasta."""
         assert ".fa" in file_name
     def dim_test(self, nb_aa, nb_ca):
+        """Test si les deux derniers arguments entrées sont valides"""
         assert (nb_aa != 0 and nb_ca != 0)
     def low_lvl_test(self, matrix):
+        """Test si la taille d'une low level matrix est conforme."""
         assert matrix.size != 0
     def high_lvl_test(self, matrix):
+        """Test si la taille de la high level matrix est conforme."""
         assert matrix.size != 0
 
 class CarbonAlpha:
@@ -127,9 +134,10 @@ if __name__ == '__main__':
         test.dim_test(NB_AA, NB_CA)
         print("Prenez-vous un café, le calcul peut prendre un certain temps ^^")
     except IndexError:
-        sys.exit("Erreur: YOU SHALL NOT PASS ! Il faut 5 arguments en tout, le README est votre ami (en plus il claque)")
+        sys.exit("Erreur: YOU SHALL NOT PASS ! Il faut 5 arguments en tout,\
+                 le README est votre ami (en plus il claque)")
     liste_ca = pdb_parser(PATH_PDB)
-    seq = fasta_parser(PATH_FASTA)
+    sequence = fasta_parser(PATH_FASTA)
     dist_matrix = np.zeros((NB_AA, NB_CA))
 
     #Dans un premier temps il s'agit de calculer une matrice de distance,
@@ -151,7 +159,8 @@ if __name__ == '__main__':
         "V": "VAL", "W": "TRP", "Y": "TYR"
     }
 
-    prime_matrix = np.zeros((NB_AA + 1, NB_CA + 1, dist_matrix.shape[0] + 1, dist_matrix.shape[1] + 1))
+    prime_matrix = np.zeros((NB_AA + 1, NB_CA + 1, dist_matrix.shape[0] + 1,
+                             dist_matrix.shape[1] + 1))
     #On stocke dans chaque case de cette matrice, une low_level_matrix.
     #Construction des low_lvl_matrix selon un algorithme de Needleman&Wunsch:
 
@@ -167,13 +176,17 @@ if __name__ == '__main__':
                                  low_level_matrix[k, l-1])
                     #On récupère la distance entre le carbone alpha fixé et l'actuel.
                     if (k < i and l > j) or (k > i and l < j):
-                        low_level_matrix[k, l] = 50 #Constante élevée pour forcer à passer par un certain chemin.
+                        #Constante élevée pour forcer
+                        #à passer par un certain chemin.
+                        low_level_matrix[k, l] = 50
                     else:
                         distance = dist_matrix[j-1, l-1]
                         try:
                             #Conversion en potentiel énergétique.
-                            energy = dist_to_dope(distance, abreviation[seq[i-1]],
-                                                  abreviation[seq[k-1]], liste_dope)
+                            energy = dist_to_dope(distance,
+                                                  abreviation[sequence[i-1]],
+                                                  abreviation[sequence[k-1]],
+                                                  liste_dope)
                         except IndexError:
                             #Si la distance entre 2 carbones alphas est trop grande,
                             #l'énergie d'interaction est négligeable.
