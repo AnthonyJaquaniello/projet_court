@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['seq',['seq',['../namespacedp.html#a60635934dcb82b1c274e6cceab216700',1,'dp']]]
+  ['x',['x',['../classdp1_1_1CarbonAlpha.html#aa3146ca13d9839eb279d4364fbd149da',1,'dp1::CarbonAlpha']]]
 ];

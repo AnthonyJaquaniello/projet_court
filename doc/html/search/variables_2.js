@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['dist_5fmatrix',['dist_matrix',['../namespacedp.html#ac12fa4ce0fe851989027b7dbb12fa1c5',1,'dp']]],
-  ['distance',['distance',['../namespacedp.html#af9019add66a2cd91daf00423079dd7b9',1,'dp']]]
+  ['dist_5fmatrix',['dist_matrix',['../namespacedp1.html#a5bddc8cb5e8ece7642cb917ca2344e61',1,'dp1']]],
+  ['distance',['distance',['../namespacedp1.html#a56c47c4be23343c72c1c8afac624779c',1,'dp1']]]
 ];
