@@ -135,8 +135,7 @@ if __name__ == '__main__':
         test.dim_test(NB_AA, NB_CA)
         print("Prenez-vous un café, le calcul peut prendre un certain temps ^^")
     except IndexError:
-        sys.exit("Erreur: YOU SHALL NOT PASS ! Il faut 5 arguments en tout,\
-                 le README est votre ami (en plus il claque)")
+        sys.exit("Erreur: YOU SHALL NOT PASS ! Il faut 5 arguments en tout,le README est votre ami (en plus il claque)")
     liste_ca = pdb_parser(PATH_PDB)
     sequence = fasta_parser(PATH_FASTA)
     dist_matrix = np.zeros((NB_AA, NB_CA))
